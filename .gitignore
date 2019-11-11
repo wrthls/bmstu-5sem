@@ -1,5 +1,9 @@
 *.exe
 *.DS_Store
 venv
-.idea
-.pdf
+*.idea
+*.pdf
+ignore
+*.obj
+*.doc
+*.docx
