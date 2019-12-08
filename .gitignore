@@ -8,3 +8,4 @@ ignore
 *.doc
 *.docx
 *.OBJ
+*.out
