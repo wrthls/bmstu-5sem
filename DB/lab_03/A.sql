@@ -1,6 +1,6 @@
 -- Разработать и тестировать 10 модулей
 -- A. Четыре функции
--- 1. Скалярную функцию
+-- 1. Скалярную функцию (возвращает одно значение)
 -- Поcчтитать кол-во магазинов с рейтингом r
 IF OBJECT_ID(N'dbo.CountByRating', N'FN') IS NOT NULL
     DROP FUNCTION dbo.CountByRating;
@@ -66,6 +66,7 @@ GO
 SELECT * from dbo.DiskSuplier();
 
 --4. Рекурсивную функцию или функцию с рекурсивным ОТВ
+-- Считает n-e число фибоначи 
 IF OBJECT_ID(N'dbo.fib', N'FN') IS NOT NULL
     DROP FUNCTION dbo.fib;
 GO
@@ -74,11 +75,13 @@ create function dbo.fib (@n int)
 returns int as
 
 begin
+	if @n is NULL
+		return NULL;
 	if @n in (1,2)
 		return 1
 	return dbo.fib(@n-1) + dbo.fib(@n-2)
 end
 go
 
-select dbo.fib(10) as fib
+select dbo.fib(NULL) as fib
 

@@ -15,11 +15,12 @@ public class StoredProcedures
          value = 0;  
          connection.Open();  
          SqlCommand command = new SqlCommand("SELECT Weight FROM Disks", connection);  
+         // Предоставляет способ чтения потока строк последовательного доступа из базы данных SQL Server.
          SqlDataReader reader = command.ExecuteReader();
   
-         using (reader)  
+         using (reader) 
          {  
-            while( reader.Read() )  
+            while(reader.Read())  // чтение из потока
             {  
                value += reader.GetSqlInt32(0);  
             }  

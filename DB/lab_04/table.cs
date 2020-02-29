@@ -12,7 +12,8 @@ namespace pow2
     {
         [SqlFunction(FillRowMethodName = "GenerateIntervalFillRow")]
 
-        // степени 2ки
+        // IEnumerable объект, возвращаемый управляемой функции напрямую, вызывается планом 
+        // выполнения запроса, который вызывает функцию с табличным, и эти результаты используются в инкрементном режиме.
         public static IEnumerable GenerateInterval(SqlInt32 To)
         {
             int[] items = new int[To.Value+1];
@@ -25,6 +26,7 @@ namespace pow2
             return items;
         }
 
+        // переводит массив item в sql таблицу
         public static void GenerateIntervalFillRow(object o, out SqlInt32 item)
         {
             item = new SqlInt32((int)o);

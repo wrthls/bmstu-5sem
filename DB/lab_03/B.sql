@@ -1,5 +1,6 @@
 -- B. Четыре хранимых процедуры
 -- 1. Хранимую процедуру без параметров или с параметрами
+-- Выводит талицу магазинов
 IF OBJECT_ID (N'dbo.getshops', 'P') is not null
 drop procedure dbo.getshops;
 go
@@ -14,6 +15,7 @@ exec getshops;
 go
 
 -- 2. Рекурсивную хранимую процедуру или хранимую процедур с рекурсивным ОТВ
+-- Факториал числа
 if OBJECT_ID (N'dbo.factorial', 'P') is not null
 drop procedure dbo.factorial
 go
@@ -38,11 +40,12 @@ declare
   @f float
 begin
   exec factorial 5, @f output
-  select @f as fib
+  select @f as '5!'
 end
 go
 
 -- 3. Хранимую процедуру с курсором
+-- Выводит имена поставщиков
 if OBJECT_ID (N'dbo.getsupliersnames', 'P') is not null
     drop procedure dbo.getsupliersnames;
 go
@@ -60,7 +63,6 @@ begin
 	begin
 		fetch next from c into @name
 		print @name
-        PRINT @i
 		set @i = @i + 1
 	end
 
@@ -74,6 +76,7 @@ go
 
 
 -- 4. Хранимую процедуру доступа к метаданным
+-- Вывод информации о таблицах базы данных
 if OBJECT_ID (N'dbo.checkExistingTables', 'P') IS NOT NULL
     drop procedure dbo.checkExistingTables
 go

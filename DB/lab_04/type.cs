@@ -10,7 +10,7 @@ using System.Text;
      IsByteOrdered=true, ValidationMethodName = "ValidatePoint")]  
 public struct Point : INullable  
 {  
-    private bool is_Null;  
+    private bool is_Null;
     private Int32 _x;  
     private Int32 _y;  
   
@@ -32,6 +32,7 @@ public struct Point : INullable
         }  
     }  
 	
+    // переводит объект класса точка в строку
     public override string ToString()  
     {  
         // Since InvokeIfReceiverIsNull defaults to 'true'  
@@ -48,7 +49,8 @@ public struct Point : INullable
             return builder.ToString();  
         }  
     }  
-  
+    
+    // переводит строку в объект класса точка
     [SqlMethod(OnNullCall = false)]  
     public static Point Parse(SqlString s)  
     {  
@@ -102,7 +104,7 @@ public struct Point : INullable
             }  
         }  
     }  
-  
+
     private bool ValidatePoint()  
     {  
         if ((_x >= 0) && (_y >= 0))  
@@ -113,7 +115,7 @@ public struct Point : INullable
         {  
             return false;  
         }  
-    }  
+    }
    
     [SqlMethod(OnNullCall = false)]  
     public Double Distance()  
@@ -122,7 +124,7 @@ public struct Point : INullable
     }  
   
     [SqlMethod(OnNullCall = false)]  
-    public Double DistanceFrom(Point pFrom)  
+    public Double DistanceFrom(Point pFrom) 
     {  
         return DistanceFromXY(pFrom.X, pFrom.Y);  
     }  

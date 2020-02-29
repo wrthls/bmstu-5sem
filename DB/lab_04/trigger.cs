@@ -14,13 +14,14 @@ public class CLRTriggers
    {  
        SqlTriggerContext triggContext = SqlContext.TriggerContext;             
   
-       switch(triggContext.TriggerAction)  
-       {  
+       switch(triggContext.TriggerAction) 
+       {
            case TriggerAction.Delete:  
            SqlContext.Pipe.Send("String was not deleted! I cant let you do that!");
            break;  
   
            default:  
+           // Возврат клиенту сообщений через пайп
            SqlContext.Pipe.Send("Something happened!");
            break;  
        }  

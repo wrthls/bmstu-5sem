@@ -1,0 +1,51 @@
+{
+    "GroupedByGenre":
+    [ 
+        {
+            "disk1":
+            {
+                "type": "Disk",
+                "id": "2000",
+                "name": "Sun",
+                "genre": "Rock"
+            }, 
+            "disk2":
+            {
+                "type": "Disk",
+                "id": "2001",
+                "name": "Winter",
+                "genre": "Rock"
+            },
+            "disk3":
+            {
+                "type": "Disk",
+                "id": "2002",
+                "name": "Sea",
+                "genre": "Rock"
+            }
+        },
+        {
+            "disk1":
+            {
+                "type": "Disk",
+                "id": "2003",
+                "name": "Moon",
+                "genre": "Pop"
+            }, 
+            "disk2":
+            {
+                "type": "Disk",
+                "id": "2004",
+                "name": "Winter",
+                "genre": "Rock"
+            },
+            "disk3":
+            {
+                "type": "Disk",
+                "id": "2005",
+                "name": "Ocean",
+                "genre": "Pop"
+            }
+        }
+    ]
+}

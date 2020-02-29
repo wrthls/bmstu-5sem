@@ -1,5 +1,6 @@
 -- C. Два DML триггера
 -- 1. Триггер AFTER
+-- В таблицу History помещается 'THIS_IS_' +  название нового магазина при добавлении нового магазина
 DROP TABLE History;
 
 create table History 
@@ -10,7 +11,7 @@ create table History
 );
 go
 
-create or ALTER trigger newshop on Shops after insert as
+create trigger newshop on Shops after insert as
 insert into History (SHno, SHname)
 select SHno, 'THIS_IS_' + SHname
 from inserted;
@@ -23,11 +24,11 @@ select * from History;
 go
 
 -- 2. Триггер INSTEAD OF
-create trigger donot on SDSH instead of delete as
+create trigger donot on Shops instead of delete as
 print 'PLEASE, DO NOT';
 GO
 
-select * from SDSH where SDSHno = 1;
+select * from Shops where SHno = 1;
 GO
 
-delete from SDSH where SDSHno = 1;
+delete from Shops where SHno = 1;
